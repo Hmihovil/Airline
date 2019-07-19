@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Airline</string>
+
+
+    <string name="Key">zcxxsh7b2r768w6hkuhyhqe4</string>
+    <string name="Secret">Tbc8K9Rkqc</string>
+
+    <string name="network_issue_title">Network Issue</string>
+    <string name="network_issue_message">We are having issues connecting to the internet. Make sure your internet is
+        on
+    </string>
+    <string name="retry">Retry</string>
+
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
+    <string name="grant_type">client_credentials</string>
+</resources>
