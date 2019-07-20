@@ -2,10 +2,12 @@ package com.kogicodes.airline.ui
 
 
 import android.app.Application
-import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
+import com.kogicodes.airline.models.airports.Airport
+import com.kogicodes.airline.models.airports.AirportModel
 import com.kogicodes.airline.models.airports.AirportsModel
 import com.kogicodes.airline.models.basic.Resource
 import com.kogicodes.airline.models.oauth.Token
@@ -25,27 +27,45 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val scheduleObservable = MediatorLiveData<Resource<ScheduleModel>>()
     private val airPortsObservable = MediatorLiveData<Resource<AirportsModel>>()
+    private val airPortObservable = MediatorLiveData<Resource<List<AirportModel>>>()
     private val tokenObservable = MediatorLiveData<Resource<Token>>()
 
+    val originAirportData: MutableLiveData<Airport> by lazy {
+        MutableLiveData<Airport>()
+    }
+
+    val destinationAirportData: MutableLiveData<Airport> by lazy {
+        MutableLiveData<Airport>()
+    }
 
     init {
 
 
         scheduleObservable.addSource(scheduleRepository.scheduleObservable) { data -> scheduleObservable.setValue(data) }
         airPortsObservable.addSource(airportsRepository.airPortsObservable) { data -> airPortsObservable.setValue(data) }
+        airPortObservable.addSource(airportsRepository.airPortObservable) { data -> airPortObservable.setValue(data) }
         tokenObservable.addSource(tokenRepository.tokenObservable) { data -> tokenObservable.setValue(data) }
 
 
     }
 
 
-    fun airports() {
-        airportsRepository.getAirports()
+    fun airports(netPage: Boolean) {
+        airportsRepository.getAirports(netPage)
     }
 
     fun observeAirports(): LiveData<Resource<AirportsModel>> {
         return airPortsObservable
     }
+
+    fun airport(code: MutableList<String?>) {
+        airportsRepository.getAirport(code)
+    }
+
+    fun observeAirport(): LiveData<Resource<List<AirportModel>>> {
+        return airPortObservable
+    }
+
 
 
     fun schedules(parameters: ScheduleSearch) {

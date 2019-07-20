@@ -1,12 +1,12 @@
 package com.kogicodes.airline.repository
 
 
+import NetworkUtils
 import RequestService
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.kogicodes.airline.R
-import com.kogicodes.airline.models.airports.AirportsModel
 import com.kogicodes.airline.models.basic.Resource
 import com.kogicodes.airline.models.oauth.Token
 import com.kogicodes.airline.utils.AppException
@@ -18,7 +18,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class TokenRepository(application: Application) {
      val tokenObservable = MutableLiveData<Resource<Token>>()
@@ -43,9 +42,14 @@ class TokenRepository(application: Application) {
 
     private fun executeAuth(observable: Observable) {
         GlobalScope.launch(context = Dispatchers.Main) {
-            val call = RequestService.getService(prefrenceManager.token.accessToken).oauthToken(context.getString(R.string.Key),context.getString(R.string.Secret),context.getString(R.string.grant_type))
+            val call = RequestService.getService().oauthToken(
+                context.getString(R.string.Key),
+                context.getString(R.string.Secret),
+                context.getString(R.string.grant_type)
+            )
             call.enqueue(object : Callback<Token> {
                 override fun onFailure(call: Call<Token>?, t: Throwable?) {
+
                     onFailure(observable, t, FailureUtils().parseError(call, t))
                 }
                 override fun onResponse(call: Call<Token>?, response: Response<Token>?) {
@@ -73,9 +77,11 @@ class TokenRepository(application: Application) {
 
         if (response != null) {
             if (response.isSuccessful) {
-                setIsSuccesful(observable, response)
+                if (response.body() != null) {
+                    setIsSuccesful(observable, response.body())
 
-
+                    prefrenceManager.saveToken(response.body()!!)
+                }
 
             } else {
                 setIsError(observable, "", ErrorUtils().parseError(response))

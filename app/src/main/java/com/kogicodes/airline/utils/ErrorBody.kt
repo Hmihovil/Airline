@@ -9,5 +9,6 @@ internal class ErrorBody {
     var message: String? = "Error"
     var result_code: Int? = 0
     var errors: List<String>? = null
+    var error: String? = null
 
 }

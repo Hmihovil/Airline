@@ -1,6 +1,7 @@
 package com.kogicodes.airline.repository
 
 
+import NetworkUtils
 import RequestService
 import android.app.Application
 import android.content.Context
@@ -83,7 +84,7 @@ class ScheduleRepository(application: Application) {
         if (response != null) {
             if (response.isSuccessful) {
 
-                setIsSuccesful(observable,response)
+                setIsSuccesful(observable, response.body())
             } else {
                 setIsError(observable, "", ErrorUtils().parseError(response))
             }

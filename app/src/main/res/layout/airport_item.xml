@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:orientation="vertical"
+                                   app:cardElevation="4dp"
+                                   app:cardUseCompatPadding="true">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+        <TextView
+                android:id="@+id/txt_airport_code"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+
+                android:text="AAZ"
+                android:textColor="@color/textblack"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:text="Names"
+                    android:textColor="@color/textblack"/>
+
+            <TextView
+                    android:id="@+id/txt_airport_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Airport nme"
+                    android:textColor="@color/textblack"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+
+                    android:text="Country"
+                    android:textColor="@color/textblack"/>
+
+            <TextView
+                    android:id="@+id/txt_country_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="KE"
+                    android:textColor="@color/textblack"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

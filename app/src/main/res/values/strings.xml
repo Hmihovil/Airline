@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Airline</string>
+    <string name="app_name">Safeboda-Lufthansa-Kogi</string>
 
 
-    <string name="Key">zcxxsh7b2r768w6hkuhyhqe4</string>
-    <string name="Secret">Tbc8K9Rkqc</string>
+    <string name="Key">6g8vjdydrqtw8ced72dw4hnv</string>
+    <string name="Secret">MpM79TfUgF</string>
 
     <string name="network_issue_title">Network Issue</string>
     <string name="network_issue_message">We are having issues connecting to the internet. Make sure your internet is

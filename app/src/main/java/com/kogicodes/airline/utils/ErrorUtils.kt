@@ -19,7 +19,7 @@ class ErrorUtils {
 
 
 
-            return AppException(erroBody?.message, erroBody?.status_name, erroBody?.errors)
+            return AppException(erroBody?.error, erroBody?.error, erroBody?.errors)
 
         } catch (e: Exception) {
 

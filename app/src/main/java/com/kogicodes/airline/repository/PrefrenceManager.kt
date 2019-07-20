@@ -29,7 +29,7 @@ class PrefrenceManager(internal var _context: Context) {
         editor = pref.edit()
     }
 
-    fun saveExpiryDate(token: Token) {
+    fun saveToken(token: Token) {
         editor.putString(KEY_TOKEN, token.accessToken)
         editor.putLong(KEY_TOKEN_EXPIRY_DATE, token.expiryDate)
         editor.apply()

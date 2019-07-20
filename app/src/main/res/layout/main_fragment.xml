@@ -2,8 +2,9 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/main_view"
+                android:background="@android:color/white"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -15,187 +16,300 @@
             android:orientation="vertical">
 
 
+        <LinearLayout android:layout_width="match_parent"
+                      android:background="@color/colorPrimary"
+                      android:layout_height="wrap_content">
 
-
-        <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="20dp"
-
-                app:cardCornerRadius="4dp"
-                app:cardElevation="3dp"
-                app:cardUseCompatPadding="true">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="4dp">
+                    app:cardUseCompatPadding="true"
 
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
 
-                    <ImageView
-                            android:id="@+id/img_dot1"
-                            android:layout_width="8dp"
-                            android:layout_height="8dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/ic_empty_dot" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_origin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_toEndOf="@+id/img_dot1">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edt_origin_code"
-                                style="@style/MyEditTextStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:enabled="false"
-                                android:text=""
-                                android:textColor="@color/textblack" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <View
-                            android:id="@+id/view_1"
-
-                            android:layout_width="1dp"
-                            android:layout_height="38dp"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginEnd="4dp"
-                            android:layout_toEndOf="@+id/til_origin"
-                            android:background="@color/colorPrimary" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-
-                            android:layout_toEndOf="@+id/view_1">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edt_origin"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:focusable="false"
-                                style="@style/MyEditTextStyle"
-
-                                android:focusableInTouchMode="false"
-                                android:hint="@string/origin"
-                                android:textColor="@color/textblack" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
-
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="4dp">
 
-                    <View
+                    <RelativeLayout
+                            android:clickable="true"
+                            android:focusableInTouchMode="true"
+                            android:focusable="true"
+                            android:id="@+id/oringin_view"
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="20dp"
-                            android:layout_toStartOf="@+id/divider_img"
-                            android:background="@color/colorPrimary" />
-
-                    <LinearLayout
-                            android:id="@+id/divider_img"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="4dp"
-                            android:background="@drawable/circle2">
+                            android:layout_height="wrap_content">
 
                         <ImageView
-                                android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="15dp"
-                                android:src="@drawable/ic_arrow_up_down" />
-                    </LinearLayout>
-                </RelativeLayout>
+                                android:id="@+id/img_dot1"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/ic_empty_dot"/>
 
-                <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_origin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/img_dot1">
 
-                    <ImageView
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_origin_code"
+                                    style="@style/MyEditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:enabled="false"
+                                    android:text=""
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                            android:id="@+id/img_dot2"
-                            android:layout_width="8dp"
-                            android:layout_height="8dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:src="@drawable/ic_full_dot" />
+                        <View
+                                android:id="@+id/view_1"
 
-                    <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_destinatiom"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_toEndOf="@+id/img_dot2">
+                                android:layout_width="1dp"
+                                android:layout_height="38dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_toEndOf="@+id/til_origin"
+                                android:background="@color/colorPrimary"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edt_destination_code"
-                                style="@style/MyEditTextStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:enabled="false"
-                                android:text=""
-                                android:textColor="@color/textblack" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <View
-                            android:id="@+id/view_2"
-
-                            android:layout_width="1dp"
-                            android:layout_height="38dp"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginEnd="4dp"
-                            android:layout_toEndOf="@+id/til_destinatiom"
-                            android:background="@color/colorPrimary" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="20dp"
-                            android:layout_toEndOf="@+id/view_2"
-                            android:hint="@string/destination">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edt_destination"
-                                style="@style/MyEditTextStyle"
+                        <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusable="false"
-                                android:focusableInTouchMode="false"
+                                android:layout_centerVertical="true"
+
+                                android:layout_toEndOf="@+id/view_1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_origin"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:focusable="false"
+                                    style="@style/MyEditTextStyle"
+
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/origin"
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                                android:textColor="@color/textblack" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toStartOf="@+id/divider_img"
+                                android:background="@color/colorPrimary"/>
+
+                        <LinearLayout
+                                android:id="@+id/divider_img"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:gravity="center"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/circle2">
+
+                            <ImageView
+
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_arrow_up_down"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:clickable="true"
+                            android:focusableInTouchMode="true"
+                            android:focusable="true"
+                            android:id="@+id/destination_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+
+                                android:id="@+id/img_dot2"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/ic_full_dot"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_destinatiom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/img_dot2">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_destination_code"
+                                    style="@style/MyEditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:enabled="false"
+                                    android:text=""
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <View
+                                android:id="@+id/view_2"
+
+                                android:layout_width="1dp"
+                                android:layout_height="38dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_toEndOf="@+id/til_destinatiom"
+                                android:background="@color/colorPrimary"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/view_2"
+                                android:hint="@string/destination">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_destination"
+                                    style="@style/MyEditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
 
 
-                </RelativeLayout>
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-            </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toStartOf="@+id/divider_im"
+                                android:background="@color/colorPrimary"/>
+
+                        <LinearLayout
+                                android:id="@+id/divider_im"
+                                android:layout_width="30dp"
+                                android:gravity="center"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/circle2">
+
+                            <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_arrow_up_down"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                            android:clickable="true"
+                            android:focusableInTouchMode="true"
+                            android:focusable="true"
+                            android:id="@+id/date_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <ImageView
+
+                                android:id="@+id/img_date"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:src="@drawable/ic_today_black_24dp"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/img_date">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_date"
+                                    style="@style/MyEditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:enabled="false"
+                                    android:text=""
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <View
+                                android:id="@+id/view_date"
+
+                                android:layout_width="1dp"
+                                android:layout_height="38dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_toEndOf="@+id/til_date"
+                                android:background="@color/colorPrimary"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:layout_toEndOf="@+id/view_date"
+                                android:hint="Date">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_date_"
+                                    style="@style/MyEditTextStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+
+
+                                    android:textColor="@color/textblack"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"

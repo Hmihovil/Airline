@@ -1,16 +1,13 @@
 package com.kogicodes.airline.network
 
 
+import com.kogicodes.airline.models.airports.AirportModel
 import com.kogicodes.airline.models.airports.AirportsModel
 import com.kogicodes.airline.models.oauth.Token
 import com.kogicodes.airline.models.schedules.ScheduleModel
+import io.reactivex.Observable
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.QueryMap
+import retrofit2.http.*
 
 /**
  * @author kogi
@@ -25,6 +22,11 @@ interface EndPoints {
 
     @GET("references/airports")
     fun getAirports(@QueryMap params: Map<String, String>): Call<AirportsModel>
+
+    @GET("references/airports/{airportCode}")
+    fun getAirport(
+        @Path("airportCode") origin: String, @QueryMap params: Map<String, String>
+    ): Observable<AirportModel>
 
 
     @GET("operations/schedules/{origin}/{destination}/{fromDateTime}")

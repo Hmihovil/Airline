@@ -2,8 +2,9 @@ package com.kogicodes.airline.models.airports
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Airport {
+class Airport : Serializable {
     @SerializedName("AirportCode")
     @Expose
     var airportCode: String? = null
@@ -29,4 +30,10 @@ class Airport {
     @Expose
     var timeZoneId: String? = null
 
+
+    constructor(position: Position?, names: Names?) {
+        this.position = position
+        this.names = names
+    }
 }
+

@@ -1,7 +1,10 @@
 package com.kogicodes.airline.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -9,11 +12,15 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.dev.common.models.custom.Status
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.material.snackbar.Snackbar
 import com.kogicodes.airline.R
 import com.wang.avi.AVLoadingIndicatorView
+
 
 class ViewUtils {
     val checkIn = 1001
@@ -87,6 +94,38 @@ class ViewUtils {
             dialog.show()
         }
 
+        fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+
+
+            val background = ContextCompat.getDrawable(context, com.kogicodes.airline.R.drawable.circle)
+
+
+            background!!.setBounds(0, 0, background.intrinsicWidth, background.intrinsicHeight)
+            val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)
+
+
+            val left = (background.intrinsicWidth - vectorDrawable!!.intrinsicWidth) / 2
+            val top = (background.intrinsicHeight - vectorDrawable.intrinsicHeight) / 3
+
+            vectorDrawable.setBounds(
+                left,
+                top,
+                left + vectorDrawable.intrinsicWidth,
+                top + vectorDrawable.intrinsicHeight
+            )
+
+
+            val bitmap =
+                Bitmap.createBitmap(background.intrinsicWidth, background.intrinsicHeight, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(bitmap)
+            background.draw(canvas)
+            vectorDrawable.draw(canvas)
+
+
+
+
+            return BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
         fun hideSoftKeyBoard(context: Context, view: View) {
             try {
                 val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -109,6 +148,7 @@ class ViewUtils {
 
         }
 
+        @SuppressLint("SetTextI18n")
         fun setStatus(
             activity: FragmentActivity?,
             view: View?,
@@ -172,7 +212,7 @@ class ViewUtils {
                     }
                 }
                 if (fullPage) {
-                    val mainView: View? = view?.findViewById(R.id.main_view)
+                    val mainView: View? = view?.findViewById(com.kogicodes.airline.R.id.main_view)
                     val errorView: View? = view?.findViewById(R.id.error_view)
                     val errorText: TextView? = view?.findViewById(R.id.error_text)
                     val errorButton: Button? = view?.findViewById(R.id.error_btn)

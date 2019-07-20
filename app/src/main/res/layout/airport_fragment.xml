@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/main_view"
+                android:background="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:background="@color/colorPrimary"
+                  android:id="@+id/search_bar"
+                  android:orientation="vertical"
+
+                  android:layout_height="wrap_content">
+
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                app:cardUseCompatPadding="true"
+
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="10dp"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.SearchView
+                        android:id="@+id/search_view"
+                        android:lines="1"
+                        android:tag="sticky"
+                        android:theme="@style/AppTheme.Toolbar"
+
+                        android:layout_marginEnd="4dp"
+                        android:layout_width="match_parent"
+                        app:queryBackground="@android:color/transparent"
+                        app:queryHint="Search Airports"
+
+                        app:iconifiedByDefault="false"
+                        android:layout_height="wrap_content"
+                />
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+
+            android:layout_below="@+id/search_bar"
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+
+    >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <include layout="@layout/loading_avi"/>
+
+
+</RelativeLayout>
